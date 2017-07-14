@@ -1,4 +1,4 @@
-from digger.layernode import *
+from neural.layernode import *
 
 
 class NN(object):
