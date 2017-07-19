@@ -2,8 +2,8 @@
 
 import pickle
 
-from neural.trainer import *
-from neural.nn import NN
+from trainer import *
+from nn import NN
 
 '''
 when data contain negative values, the nn fails.
