@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
     print("Neural network created in {} secs.".format(time.time() - nnCreateTime))
 
-    data = unpickle("testdata/data_batch_1")
+    #data = unpickle("testdata/data_batch_1")
 
     """inputX = data[b'data'][:10]
     inputY = data[b'labels'][:10]
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     neuralNet.feed(inputX, inputY)
     print("Data feeding complete.")
 
-    T = Trainer(neuralNet, 0.1, 0.00001, view=False, verify=False)
+    T = Trainer(neuralNet, 1, 0.00001, view=False, verify=False)
 
     #T.analyzeLearningRate()
 
