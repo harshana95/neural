@@ -1,4 +1,4 @@
-from neural.layernode import *
+from layernode import *
 
 
 class NN(object):
