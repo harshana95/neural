@@ -90,30 +90,30 @@ def createNN(typeOfNN, costf, inputsize, outputsize, hiddensize, hiddenlayers, h
 if __name__ == "__main__":
     nnCreateTime = time.time()
 
-    neuralNet = createNN(typeOfNN="Classification", costf="cross-entropy",inputsize=2, outputsize=6, hiddensize=6, hiddenlayers=3, hiddenactivation="Sigmoid")
+    neuralNet = createNN(typeOfNN="Classification", costf="cross-entropy",inputsize=2, outputsize=3, hiddensize=6, hiddenlayers=3, hiddenactivation="Softplus")
 
     print("Neural network created in {} secs.".format(time.time() - nnCreateTime))
 
-    data = unpickle("testdata/data_batch_1")
+    #data = unpickle("testdata/data_batch_1")
 
     """inputX = data[b'data'][:10]
     inputY = data[b'labels'][:10]
     for i in range(len(inputY)):
         inputY[i] = [int(j==inputY[i]) for j in range(10)]"""
     inputX, inputY = createData('np.sin(y)**2 + np.exp(z) + z*y + z**0.5 + y*8 + 2', ['z', 'y'], 100, 10)
-    inputX, inputY = createDataClassification(features=2, classes=6, size=100, scatter=0.1)
+    inputX, inputY = createDataClassification(features=2, classes=3, size=100, scatter=0.05)
     print("Feeding data into the Neural Network...")
     neuralNet.feed(inputX, inputY)
     print("Data feeding complete.")
 
-    T = Trainer(neuralNet, 0.1, 0.00001, view=False, verify=False)
+    T = Trainer(neuralNet, 0.1, 0.0001, view=False, verify=False)
 
     #T.analyzeLearningRate()
 
     trainTime = time.time()
     print("Neural network training....")
     #T.train(30,100,2)
-    T.trainWithoutTesting(200)
+    T.trainWithoutTesting(500)
     print("Training completed in {} secs".format(time.time() - trainTime))
 
 
